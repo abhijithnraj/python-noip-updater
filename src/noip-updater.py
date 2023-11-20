@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Import the abc module for abstract base classes
 import abc
 from ip_address.ip_locator import ISPDetector,IPAPIStrategy
