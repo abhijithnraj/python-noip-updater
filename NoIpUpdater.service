@@ -1,0 +1,18 @@
+[Unit]
+Description=NoIP Updater Client
+After=network.target
+StartLimitIntervalSec=1
+
+[Service]
+Nice=-15
+EnvironmentFile=/opt/NoIpUpdater/env
+Type=simple
+Restart=always
+RestartSec=1
+LoadCredentialEncrypted=noip:/opt/NoIpUpdater/noip.cred
+User=root
+ExecStart=/opt/NoIpUpdater/noip-updater.py
+Environment=NOIP_PASSWORD=$CREDENTIALS_NOIP
+
+[Install]
+WantedBy=multi-user.target
